@@ -21,9 +21,10 @@ function filtrarPorInput(event) {
   let data2 = content.querySelectorAll(".card");
   data2.forEach(data => {
   const term = event.target.value.toUpperCase();
-  const name = data.querySelector('.name').innerText.toUpperCase();
-  
-  if (name.indexOf(term) > -1) 
+  const nameTag = data.querySelector('.name');
+  const name = nameTag.innerText.toUpperCase();
+  const namecate = nameTag.getAttribute('data-namecate').toUpperCase();
+  if (name.indexOf(term) > -1 || namecate.indexOf(term) > -1 ) 
     {data.style.display = 'block';} 
   else 
     {data.style.display = 'none';}
@@ -39,7 +40,7 @@ function actualizarDOM() {
     cardEl.classList.add('card');
     cardEl.innerHTML = `
         <img class="image" src=${data.url_image}>
-        <div class="name">${data.name}</div>
+        <div class="name" data-namecate=${data.namecate}>${data.name}</div>
         <div class="price">$${data.price}</div>
     `;
     content.appendChild(cardEl);
