@@ -4,6 +4,8 @@ let datas = [{"url_image":"https://dojiw2m9tvv09.cloudfront.net/11132/product/mi
 
 const content = document.querySelector("#content");
 const optionSelect = document.querySelector("#option");
+const buscarInput = document.querySelector("#buscarInput");
+
 
 function filtrarPorSelect(event) {
     event.preventDefault();
@@ -15,19 +17,31 @@ function filtrarPorSelect(event) {
     actualizarDOM();
 }
 
+function filtrarPorInput(event) {
+  let data2 = content.querySelectorAll(".card");
+  data2.forEach(data => {
+  const term = event.target.value.toUpperCase();
+  const name = data.querySelector('.name').innerText.toUpperCase();
+  
+  if (name.indexOf(term) > -1) 
+    {data.style.display = 'block';} 
+  else 
+    {data.style.display = 'none';}
+
+  });
+
+}
+
 function actualizarDOM() {
   content.innerHTML="";
-datas.forEach(data => {
+  datas.forEach(data => {
     const cardEl = document.createElement('div');
-    cardEl.classList.add('post');
+    cardEl.classList.add('card');
     cardEl.innerHTML = `
-      <div class="card">
         <img class="image" src=${data.url_image}>
         <div class="name">${data.name}</div>
         <div class="price">$${data.price}</div>
-      </div>
     `;
-
     content.appendChild(cardEl);
   });
 }
@@ -35,3 +49,4 @@ datas.forEach(data => {
 actualizarDOM();
 
 optionSelect.addEventListener('change', filtrarPorSelect);
+buscarInput.addEventListener('input', filtrarPorInput);
