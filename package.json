@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dev": "nodemon ./v1/back/index.js",
-    "start": "node ./v1/back/index.js"
+    "dev": "nodemon ./v1/back/server.js",
+    "start": "node ./v1/back/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
