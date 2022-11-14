@@ -5,6 +5,7 @@ const products = require('./routes/products');
 const app = express();
 
 app.use(logger);
+app.use(express.json());
 
 //Router for products
 app.use('/api/v1/products', products);
