@@ -17,13 +17,11 @@ class ProductsService {
     }
   
     create(data) {
-      console.log("data: ", data);
       const newProduct = {
         id: this.products.slice(-1)[0].id + 1,
         ...data
       }
       this.products.push(newProduct);
-      console.log("newProduct: ", newProduct);
       return newProduct;
     }
   

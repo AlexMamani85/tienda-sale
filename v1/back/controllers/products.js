@@ -40,8 +40,6 @@ exports.getProduct = (req, res, next) => {
 exports.createProduct=  (req, res, next)=>{
   try {
     const body = req.body;
-    console.log("req: ", Object.keys(req.params));
-    console.log("body: ", body);
     const newProduct = service.create(body);
 
     res.status(201).json({
@@ -63,8 +61,6 @@ exports.createProduct=  (req, res, next)=>{
 
     try {
       let body = req.body;
-      console.log()
-      console.log("req.BODY from updateProduct: ", req.body);
       product = service.update(req.params.id, req.body);
 
       res.status(200).json({
