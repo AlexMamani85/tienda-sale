@@ -22,6 +22,9 @@ select {
 input {
     font-size: 1.2rem;
     margin: 1rem;
+    width: 25%;
+    text-align: right;
+    padding: 8px;
 }
 
 button {
