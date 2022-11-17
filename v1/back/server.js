@@ -5,6 +5,14 @@ const categories = require('./routes/categories');
 
 const app = express();
 
+// To pass CORS policy
+app.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', '*');
+    res.append('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS');
+    res.append('Access-Control-Allow-Headers', 'Content-Type, authorization');
+    next();
+});
+
 app.use(logger);
 app.use(express.json());
 
