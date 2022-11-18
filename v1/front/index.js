@@ -1,5 +1,7 @@
 // const { json } = require("stream/consumers");
-const BASE_URI = 'http://localhost:5001/api/v1/';
+// const BASE_URI = 'http://localhost:5001/api/v1/';
+const BASE_URI = 'https://tienda-sale.onrender.com/api/v1/';
+
 async function apiFetch(
   endpoint,
   { method, headers, body } = {}
@@ -75,7 +77,7 @@ async function getProducts(){
         <div class="price">$${data.price}</div>
 
 
-        <input class="quatity" type="number" value=${data.quantity ? data.quantity :''} >         
+        <input class="quantity" type="number" value=${data.quantity ? data.quantity :''} >         
     `;
     content.appendChild(cardEl);
   });
@@ -97,8 +99,8 @@ function getDataFromCards() {
     const price = data.querySelector('.name').getAttribute('data-price');
 
     const url_image = data.querySelector('.image').getAttribute('src');
-    const quantity = data.querySelector('.quatity').value
-    
+    const quantity = data.querySelector('.quantity').value
+
     data2.push({category, discount,id,url_image,name,price,quantity});
 
   });
